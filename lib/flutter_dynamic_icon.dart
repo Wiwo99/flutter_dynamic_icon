@@ -8,8 +8,8 @@ class FlutterDynamicIcon {
       const MethodChannel('flutter_dynamic_icon');
 
   /// Indicates whether the current platform supports dynamic app icons
-  static Future<bool> get supportsAlternateIcons async {
-    final bool supportsAltIcons =
+  static Future<bool?> get supportsAlternateIcons async {
+    final bool? supportsAltIcons =
         await _channel.invokeMethod('mSupportsAlternateIcons');
     return supportsAltIcons;
   }
@@ -17,8 +17,8 @@ class FlutterDynamicIcon {
   /// Fetches the current iconName
   ///
   /// Returns `null` if the current icon is the default icon
-  static Future<String> getAlternateIconName() async {
-    final String altIconName =
+  static Future<String?> getAlternateIconName() async {
+    final String? altIconName =
         await _channel.invokeMethod('mGetAlternateIconName');
     return altIconName;
   }
@@ -37,8 +37,8 @@ class FlutterDynamicIcon {
   /// Fetches the icon batch number
   ///
   /// The default value of this property is `0` (to show no batch)
-  static Future<int> getApplicationIconBadgeNumber() async {
-    final int batchIconNumber =
+  static Future<int?> getApplicationIconBadgeNumber() async {
+    final int? batchIconNumber =
         await _channel.invokeMethod('mGetApplicationIconBadgeNumber');
     return batchIconNumber;
   }
